@@ -1,0 +1,28 @@
+// prisma/schema.prisma
+// Define your database models
+
+generator client {
+  provider = "prisma-client"
+
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+model Visitor {
+  id    String     @id @default(uuid())
+  visitorId String  @unique @map("visitor_id") @db.VarChar(255)
+  ipAddress  String? @map("ip_address") @db.VarChar(45)
+  userAgent Post[]
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean @default(false)
+  author    User    @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
