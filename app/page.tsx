@@ -3,9 +3,10 @@ import OverlappingCard from "./components/OverlappingCard";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen items-center justify-center bg-red-50 font-sans dark:bg-black">
+      <div className="absolute dark:opacity-[0.06] opacity-[0.09] inset-0 w-10 h-full border dark:border-[#eee] border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]" />
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-       <OverlappingCard />
+        <OverlappingCard />
 
         <Image
           className="dark:invert"
