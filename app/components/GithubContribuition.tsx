@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { GitHubCalendar } from "react-github-calendar";
 import { WaveLoader } from "./WaveLoader";
+import useCalenderSize from '../../app/hooks/useCalenderSize';
 
 interface GithubStats {
   totalcontributions: number;
@@ -33,6 +34,7 @@ const GithubContribution = ({
   const [loading, setLoading] = useState(false);
 
   const isCompact = typeof window !== "undefined" && window.innerWidth < 1024;
+  const { block , margin } = useCalenderSize();
 
   useEffect(() => {
     setMounted(true);
@@ -74,16 +76,17 @@ const GithubContribution = ({
 
   return (
     <div className={className}>
+        {loading && <WaveLoader />}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="space-y-4"
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className=" mb-10 mr-10"
       >
         <GitHubCalendar
           username={username}
-          blockSize={isCompact ? 9 : 10}
-          blockMargin={isCompact ? 1 : 3}
+          blockSize={block}
+          blockMargin={margin}
           theme={{
             light: theme.light,
             dark: theme.dark,
