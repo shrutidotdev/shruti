@@ -36,11 +36,14 @@ export default function Home() {
         <GithubContribution username="shruti" />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1
-            className="max-w-xs text-3xl font-semibold leading-10  tracking-wide
+            className=" text-3xl font-semibold leading-10  tracking-wide
  text-white dark:text-zinc-50"
           >
-            Hi there 👋🏻 I&apos;m Shruti, a passionate developer and tech
-            enthusiast.
+            Hey 👋🏻 I&apos;m Shruti. I build things that didn&apos;t exist
+            yesterday. AI-powered products, full-stack apps, tools that make
+            people&apos;s lives easier—I take them from idea to deployment
+            without asking for a roadmap. I care about one thing: does it work,
+            and do people love it? Everything else is noise.
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             Looking for a starting point or more instructions? Head over to{" "}
