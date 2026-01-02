@@ -3,8 +3,11 @@ import OverlappingCard from "./components/OverlappingCard";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-red-50 font-sans dark:bg-black">
-      <div className="absolute dark:opacity-[0.06] opacity-[0.09] inset-0 w-10 h-full border dark:border-[#eee] border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]" />
+    <div className="relative flex min-h-screen items-center justify-center black  font-sans dark:bg-black">
+      <div className="absolute bottom-0 left-0 top-0 dark:opacity-[0.06] opacity-[0.09] inset-0 w-10 h-full border dark:border-[#eee] border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
+
+      {/* bg-stripes absolute bottom-0 left-0 top-0 flex h-full min-h-screen w-2 flex-col sm:w-4 */}
+      
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <OverlappingCard />
 
@@ -63,7 +66,8 @@ export default function Home() {
             Documentation
           </a>
         </div>
-      </main>
+      </main> 
+      <div className="absolute bottom-0 right-0 top-0 dark:opacity-[0.06] opacity-[0.09] w-10 h-full border dark:border-[#eee] border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
     </div>
   );
 }
