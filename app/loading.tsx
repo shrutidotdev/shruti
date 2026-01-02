@@ -1,4 +1,4 @@
-import { WaveLoader } from "../components/WaveLoader"
+import { WaveLoader } from "./components/WaveLoader"
 
 const loading = () => {
   return (
