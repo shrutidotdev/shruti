@@ -1,60 +1,119 @@
 "use client";
 
-import useTheme from "next-theme";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { GitHubCalendar } from "react-github-calendar";
+import {GitHubCalendar} from "react-github-calendar";
 
-interface GithubContribuitionProps {
+interface GithubStats {
+  totalcontributions: number;
+  totalrepos: number;
+  followers: number;
+  following: number;
+  longestStreak: number;
+  currentStreak: number;
+  totalCommitments: number;
+}
+
+interface GithubContributionProps {
   username: string;
   compact?: boolean;
   className?: string;
 }
 
-const GithubContribuition = ({
+const GithubContribution = ({
   username,
   compact,
   className,
-}: GithubContribuitionProps) => {
+}: GithubContributionProps) => {
   const { resolvedTheme } = useTheme();
-  const [mounted, setmounted] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [stats, setStats] = useState<GithubStats | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setmounted(true);
+    setMounted(true);
   }, []);
-  //   Github official
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`/api/github?username=${username}`);
+        const data = await response.json();
+        
+        if (data.success) {
+          setStats(data.stats);
+        }
+      } catch (error) {
+        console.error("Error fetching GitHub stats:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (mounted) {
+      fetchStats();
+    }
+  }, [username, mounted]);
+
+  // GitHub official theme colors
   const theme = {
     light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
     dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
   };
+
   if (!mounted) {
     return (
-      <div
-        className={`w-full ${compact ? "h-30" : "h-40"} 
-        rounded-xl bg-muted animate-pulse`}
-      />
+      <div className={`flex justify-center items-center p-8 ${className}`}>
+        <div className="animate-pulse">Loading...</div>
+      </div>
     );
   }
+
   return (
-    <div>
+    <div className={className}>
       <motion.div
-        className="w-full overflow-hidden rounded-xl bg-transparent backdrop-blur-none border-0 hover:shadow-sm transition-shadow duration-300"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
+        className="space-y-4"
       >
-        <div
-          className={`${
-            compact ? "p-2" : "p-4"
-          } hover:scale-95 transition-transform duration-200`}
-        >
+        {/* Stats Display */}
+        {loading ? (
+          <div className="animate-pulse">Loading stats...</div>
+        ) : stats ? (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800">
+              <div className="text-2xl font-bold">{stats.totalrepos}</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Repositories</div>
+            </div>
+            <div className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800">
+              <div className="text-2xl font-bold">{stats.totalcontributions}</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Stars + Forks</div>
+            </div>
+            <div className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800">
+              <div className="text-2xl font-bold">{stats.followers}</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Followers</div>
+            </div>
+            <div className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800">
+              <div className="text-2xl font-bold">{stats.following}</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Following</div>
+            </div>
+          </div>
+        ) : null}
+
+        {/* GitHub Contribution Calendar */}
+        <div className="github-calendar-container">
           <GitHubCalendar
             username={username}
+            blockSize={compact ? 12 : 15}
+            blockMargin={compact ? 2 : 5}
+            theme={{
+              light: theme.light,
+              dark: theme.dark,
+            }}
             colorScheme={resolvedTheme === "dark" ? "dark" : "light"}
-            fontSize={compact ? 14 : 12}
-            blockMargin={compact ? 2 : 4}
-            showWeekdayLabels={!compact}
-            theme={theme}
           />
         </div>
       </motion.div>
@@ -62,4 +121,4 @@ const GithubContribuition = ({
   );
 };
 
-export default GithubContribuition;
+export default GithubContribution;
