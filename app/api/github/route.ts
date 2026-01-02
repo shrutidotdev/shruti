@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
 
     // Calculate total stars and forks
     const totalStats = repos.reduce(
-      (acc, repo) => acc + repo.stargazers_count + repo.forks_count, 
+      (acc, repo) => acc + (repo.stargazers_count ?? 0) + (repo.forks_count ?? 0), 
       0
     );
     

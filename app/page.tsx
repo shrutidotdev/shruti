@@ -4,15 +4,15 @@ import GithubContribution from "./components/GithubContribuition";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center black  font-sans dark:bg-black">
-      <div className="absolute bottom-0 left-0 top-0 dark:opacity-[0.06] opacity-[0.09] inset-0 w-10 h-full border dark:border-[#eee] border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
+    <div className="relative flex min-h-screen items-center justify-center bg-black text-white font-sans dark:bg-black">
+      <div className="absolute left-50 top-0 dark:opacity-[0.06] opacity-[0.09] inset-10 w-10 h-full text-white border dark:border-[#eee] border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
 
       {/* bg-stripes absolute bottom-0 left-0 top-0 flex h-full min-h-screen w-2 flex-col sm:w-4 */}
       
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 text-white dark:bg-black sm:items-start">
         <OverlappingCard />
 
-        <GithubContribution username="shruti" />
+  
 
         <Image
           className="dark:invert"
@@ -22,8 +22,9 @@ export default function Home() {
           height={20}
           priority
         />
+              <GithubContribution username="shruti" />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-white dark:text-zinc-50">
             To get started, edit the page.tsx file.
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
@@ -70,7 +71,7 @@ export default function Home() {
           </a>
         </div>
       </main> 
-      <div className="absolute bottom-0 right-0 top-0 dark:opacity-[0.06] opacity-[0.09] w-10 h-full border dark:border-[#eee] border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
+      <div className="absolute bottom-0 right-50 top-0 dark:opacity-[0.06] opacity-[0.09] w-10 h-full border dark:border-[#eee] border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
     </div>
   );
 }

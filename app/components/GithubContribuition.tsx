@@ -3,7 +3,8 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import {GitHubCalendar} from "react-github-calendar";
+import { GitHubCalendar } from "react-github-calendar";
+import { WaveLoader } from "./WaveLoader";
 
 interface GithubStats {
   totalcontributions: number;
@@ -29,7 +30,9 @@ const GithubContribution = ({
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [stats, setStats] = useState<GithubStats | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  const isCompact = typeof window !== "undefined" && window.innerWidth < 1024;
 
   useEffect(() => {
     setMounted(true);
@@ -41,7 +44,7 @@ const GithubContribution = ({
         setLoading(true);
         const response = await fetch(`/api/github?username=${username}`);
         const data = await response.json();
-        
+
         if (data.success) {
           setStats(data.stats);
         }
@@ -65,9 +68,7 @@ const GithubContribution = ({
 
   if (!mounted) {
     return (
-      <div className={`flex justify-center items-center p-8 ${className}`}>
-        <div className="animate-pulse">Loading...</div>
-      </div>
+      <WaveLoader />
     );
   }
 
@@ -79,43 +80,17 @@ const GithubContribution = ({
         transition={{ duration: 0.5 }}
         className="space-y-4"
       >
-        {/* Stats Display */}
-        {loading ? (
-          <div className="animate-pulse">Loading stats...</div>
-        ) : stats ? (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            <div className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800">
-              <div className="text-2xl font-bold">{stats.totalrepos}</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Repositories</div>
-            </div>
-            <div className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800">
-              <div className="text-2xl font-bold">{stats.totalcontributions}</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Stars + Forks</div>
-            </div>
-            <div className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800">
-              <div className="text-2xl font-bold">{stats.followers}</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Followers</div>
-            </div>
-            <div className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800">
-              <div className="text-2xl font-bold">{stats.following}</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Following</div>
-            </div>
-          </div>
-        ) : null}
-
-        {/* GitHub Contribution Calendar */}
-        <div className="github-calendar-container">
-          <GitHubCalendar
-            username={username}
-            blockSize={compact ? 12 : 15}
-            blockMargin={compact ? 2 : 5}
-            theme={{
-              light: theme.light,
-              dark: theme.dark,
-            }}
-            colorScheme={resolvedTheme === "dark" ? "dark" : "light"}
-          />
-        </div>
+        <GitHubCalendar
+          username={username}
+          blockSize={isCompact ? 9 : 10}
+          blockMargin={isCompact ? 1 : 3}
+          theme={{
+            light: theme.light,
+            dark: theme.dark,
+          }}
+          colorScheme={resolvedTheme === "dark" ? "dark" : "light"}
+        />
+     
       </motion.div>
     </div>
   );
