@@ -19,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${instrument_Serif.className} antialiased`}>{children}</body>
+      <body className={`${instrument_Serif.className} antialiased`}>
+        
+        {children}
+        </body>
     </html>
   );
 }

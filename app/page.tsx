@@ -9,9 +9,18 @@ export default function Home() {
 
       {/* bg-stripes absolute bottom-0 left-0 top-0 flex h-full min-h-screen w-2 flex-col sm:w-4 */}
 
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 text-white dark:bg-black sm:items-start">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between mt-[0.1]  text-white dark:bg-black sm:items-start">
+        <Image
+          src={"/quote.svg"}
+          alt="me"
+          width={1000}
+          height={1000}
+          className="w-full h-auto rounded"
+        />
+
         <OverlappingCard />
-{/* 
+
+        {/* 
         <Image
           className="dark:invert"
           src="/next.svg"
