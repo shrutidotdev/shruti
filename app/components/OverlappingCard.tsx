@@ -3,6 +3,7 @@ import Image from "next/image";
 
 const OverlappingCard = () => {
   return (
+    
     <div className="flex flex-row relative items-center justify-center -mt-10 inset-0">
       {/* <div className="absolute ">
         
