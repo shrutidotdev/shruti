@@ -5,23 +5,24 @@ import FooterSection from "./components/FooterSection";
 import ProjectSection from "./components/ProjectSection";
 import Link from "next/link";
 import { Header } from "./components/Header";
+import { ProfessionalExperience } from "./components/Experience";
 
 export default function Home() {
   return (
     <div className=" min-h-screen w-full bg-black text-white font-sans overflow-hidden">
       <div className="relative mx-auto max-w-4xl rounded-lg px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-       <div className="absolute inset-0 opacity-[0.09] bg-[repeating-linear-gradient(45deg,transparent,transparent_2px,rgba(255,255,255,0.4)_2px,rgba(255,255,255,0.4)_3px,transparent_3px,transparent_6px)]" />
-      <div className="absolute inset-0 opacity-[0.14] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,rgba(255,255,255,0.35)_2px,rgba(255,255,255,0.35)_3px,transparent_3px,transparent_6px)]" />
+        <div className="absolute inset-0 opacity-[0.09] bg-[repeating-linear-gradient(45deg,transparent,transparent_2px,rgba(255,255,255,0.4)_2px,rgba(255,255,255,0.4)_3px,transparent_3px,transparent_6px)]" />
+        <div className="absolute inset-0 opacity-[0.14] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,rgba(255,255,255,0.35)_2px,rgba(255,255,255,0.35)_3px,transparent_3px,transparent_6px)]" />
 
-      {/* Noise texture overlay - ENHANCED for texture */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><filter id=%22noise%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 result=%22noise%22/></filter><rect width=%22100%22 height=%22100%22 filter=%22url(%23noise)%22 opacity=%220.35%22/></svg>')",
-          backgroundSize: "100px 100px",
-        }}
-      />
+        {/* Noise texture overlay - ENHANCED for texture */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage:
+              "url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><filter id=%22noise%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 result=%22noise%22/></filter><rect width=%22100%22 height=%22100%22 filter=%22url(%23noise)%22 opacity=%220.35%22/></svg>')",
+            backgroundSize: "100px 100px",
+          }}
+        />
 
         <Header />
 
@@ -35,7 +36,10 @@ export default function Home() {
           />
 
           <div className="border-t-0 b">
-            <Link href="/about" className="text-white text-3xl hover:text-zinc-400">
+            <Link
+              href="/about"
+              className="text-white text-3xl hover:text-zinc-400"
+            >
               About
             </Link>
           </div>
@@ -88,8 +92,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="h-px bg-zinc-800 mb-12 sm:mb-16 mt-12 sm:mt-16"></div>
-
+          <ProfessionalExperience />
           <FooterSection />
         </main>
       </div>
