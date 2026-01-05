@@ -22,23 +22,31 @@ const CardGroupDemo = () => {
       title: "Cosmic Blue Waves",
       description:
         "Explore the mysteries of the cosmos with deep, swirling waves of blue and purple, evoking a sense of depth and infinite space.",
+    }, {
+      image: "https://cdn.shadcnstudio.com/ss-assets/components/card/image-5.png?width=368&format=auto",
+      title: "Cosmic Blue Waves",
+      description:
+        "Explore the mysteries of the cosmos with deep, swirling waves of blue and purple, evoking a sense of depth and infinite space.",
     },
   ]
 
   return (
-    <div className="flex flex-col gap-6 md:flex-row *:rounded-none *:shadow-none md:*:not-last:border-r-0 md:*:first:rounded-l-xl md:*:last:rounded-r-xl md:flex-1 border-none">
+    <div className="flex flex-wrap justify-center gap-8 lg:gap-6">
       {cards.map((card, index) => (
-        <Card key={index} className="overflow-hidden py-5 cursor-pointer flex flex-col justify-between shadow-lg hover:shadow-2xl bg-black transition-shadow duration-300 h-[30rem] w-96">
-          <CardContent className="p-0">
-            <img src={card.image} alt={card.title} className="aspect-video w-full object-cover " />
+        <Card
+          key={index}
+          className="overflow-hidden pt-0 h-[32rem] w-80 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
+        >
+          <CardContent className="px-0">
+            <img src={card.image || "/placeholder.svg"} alt={card.title} className="aspect-video w-full object-cover" />
           </CardContent>
-          <CardHeader className="mb-7">
+          <CardHeader className="p-6 flex-1">
             <CardTitle>{card.title}</CardTitle>
             <CardDescription>{card.description}</CardDescription>
           </CardHeader>
-          <CardFooter className="gap-3 max-sm:flex-col max-sm:items-stretch">
+          <CardFooter className="gap-3 p-6 max-sm:flex-col max-sm:items-stretch">
             <Button>Explore More</Button>
-            <Button > Now</Button>
+            <Button variant="outline">Download Now</Button>
           </CardFooter>
         </Card>
       ))}

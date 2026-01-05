@@ -27,8 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${instrumentSerif.variable} ${lora.variable} antialiased`}
+        className={`${instrumentSerif.variable} ${lora.variable} antialiased `}
       >
+        
         {children}
       </body>
     </html>

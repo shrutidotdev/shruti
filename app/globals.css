@@ -78,6 +78,25 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
+@theme {
+  --background-stripes: linear-gradient(
+    135deg,
+    color-mix(in oklch, var(--color-foreground) 10%, transparent) 14.29%,
+    color-mix(in oklch, var(--color-background) 10%, transparent) 14.29%,
+    color-mix(in oklch, var(--color-background) 10%, transparent) 50%,
+    color-mix(in oklch, var(--color-foreground) 10%, transparent) 50%,
+    color-mix(in oklch, var(--color-foreground) 10%, transparent) 64.29%,
+    color-mix(in oklch, var(--color-background) 10%, transparent) 64.29%,
+    color-mix(in oklch, var(--color-background) 10%, transparent) 100%
+  );
+}
+
+/* Custom utility class */
+@utility bg-stripes {
+  background-image: var(--background-stripes);
+  background-size: 14px 14px;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
