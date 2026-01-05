@@ -3,6 +3,7 @@
 import { Separator } from "@/components/ui/separator";
 import React from "react";
 import { motion } from "framer-motion";
+import CardGroupDemo from "@/components/shadcn-studio/card/card-15";
 
 const ProjectSection = () => {
   return (
@@ -20,6 +21,8 @@ const ProjectSection = () => {
           </h1>
           <Separator className="flex-1" />
         </div>
+
+        <CardGroupDemo />
 
         {/* project */}
       </motion.div>
