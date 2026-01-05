@@ -1,53 +1,58 @@
-import Image from "next/image"
-import OverlappingCard from "./components/OverlappingCard"
-import GithubContribution from "./components/GithubContribuition"
-import FooterSection from "./components/FooterSection"
-import Pattern from "./components/Pattern"
+import Image from "next/image";
+import OverlappingCard from "./components/OverlappingCard";
+import GithubContribution from "./components/GithubContribuition";
+import FooterSection from "./components/FooterSection";
+import Pattern from "./components/Pattern";
+import ProjectSection from "./components/ProjectSection";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-black text-white font-sans dark:bg-black overflow-hidden">
-      <div className="absolute left-50 top-0 dark:opacity-[0.06] opacity-[0.09] inset-10 w-10 h-full text-white border dark:border-[#ffffff] border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
+    <div className="relative min-h-screen bg-black text-white font-sans overflow-hidden">
+  {/* Left stripe pattern - fixed */}
+  <div className="fixed left-0 top-0 w-80 h-full opacity-[0.09] text-white border-r border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
 
-       <div className="absolute left-50 top-0 dark:opacity-[0.06] opacity-[0.09] inset-10 w-10 h-full text-white border dark:border-[#ffffff] border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
+  {/* Right stripe pattern - fixed */}
+  <div className="fixed right-0 top-0 w-80 h-full opacity-[0.09] text-white border-l border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
 
-      <main className="relative mx-auto   max-w-2xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        {/* Quote Banner */}
+    {/* rest of your content */}
+
+      <main className="relative mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <Image
           src={"/quote.svg"}
           alt="quote"
           width={1000}
           height={1000}
-          className="w-full h-auto rounded-b-4xl mb-8 sm:mb-12"
+          className="w-full h-auto rounded-b-4xl mb-2 sm:mb-10 object-cover object-top"
         />
 
-        {/* Profile Image Section */}
         <div className="flex justify-center mb-8 sm:mb-10">
           <OverlappingCard />
         </div>
 
-        {/* Profile Name */}
-        <h1 className="text-4xl sm:text-5xl font-bold text-center mb-8 sm:mb-12 tracking-tight">Shruti</h1>
+        <h1 className="text-4xl sm:text-5xl font-bold text-center mb-8 sm:mb-12 tracking-tight">
+          Shruti
+        </h1>
 
-        {/* FIXED: Remove overflow-x-auto, break out of max-w-2xl for GitHub section */}
         <div className="w-full mb-12 sm:mb-16">
-          {/* Break out of container on large screens */}
           <div className="lg:-mx-24 xl:-mx-32">
             <GithubContribution username="shruti" />
           </div>
         </div>
 
-        {/* Rest of content stays in max-w-2xl container */}
         <div className="space-y-6 sm:space-y-8 mb-12 sm:mb-16">
           <p className="text-lg sm:text-xl leading-relaxed text-white">
-            <span className="font-semibold">I build things that didn&apos;t exist yesterday.</span> AI-powered products,
-            full-stack apps, tools that make people&apos;s lives easier—I take them from idea to deployment without
-            asking for a roadmap.
+            <span className="font-semibold">
+              I build things that didn&apos;t exist yesterday.
+            </span>{" "}
+            AI-powered products, full-stack apps, tools that make people&apos;s
+            lives easier—I take them from idea to deployment without asking for
+            a roadmap.
           </p>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-400">
-            I care about one thing: does it work, and do people love it? Everything else is noise. From frontend to
-            backend to deployment, I work across the entire stack and deliver results that matter.
+            I care about one thing: does it work, and do people love it?
+            Everything else is noise. From frontend to backend to deployment, I
+            work across the entire stack and deliver results that matter.
           </p>
         </div>
 
@@ -66,10 +71,12 @@ export default function Home() {
           </a>
         </div>
 
+        <ProjectSection />
+
         <div className="h-px bg-zinc-800 mb-12 sm:mb-16"></div>
 
         <FooterSection />
       </main>
     </div>
-  )
+  );
 }
