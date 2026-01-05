@@ -7,16 +7,22 @@ import ProjectSection from "./components/ProjectSection";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-black max-w-300 w-full text-white font-sans overflow-hidden">
+    <div className="relative min-h-screen max-w-7xl bg-black text-white font-sans overflow-hidden">
   {/* Left stripe pattern - fixed */}
   <div className="fixed left-0 top-0 w-80 h-full opacity-[0.09] text-white border-r border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
 
   {/* Right stripe pattern - fixed */}
   <div className="fixed right-0 top-0 w-80 h-full opacity-[0.09] text-white border-l border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
 
+    {/* Left stripe pattern - fixed */}
+  <div className="fixed left-0 top-0 w-80 h-full opacity-[0.09] text-white border-r border-[#ffffff] bg-[repeating-linear-gradient(45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
+
+  {/* Right stripe pattern - fixed */}
+  <div className="fixed right-0 top-0 w-80 h-full opacity-[0.09] text-white border-l border-[#ffffff] bg-[repeating-linear-gradient(45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
+
     {/* rest of your content */}
 
-      <main className="relative mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <main className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <Image
           src={"/quote.svg"}
           alt="quote"
@@ -71,7 +77,9 @@ export default function Home() {
           </a>
         </div>
 
+<div className="w-full max-w-8xl">
         <ProjectSection />
+      </div>
 
         <div className="h-px bg-zinc-800 mb-12 sm:mb-16"></div>
 
