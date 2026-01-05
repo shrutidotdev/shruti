@@ -1,28 +1,32 @@
-import Image from "next/image";
-import OverlappingCard from "./components/OverlappingCard";
-import GithubContribution from "./components/GithubContribuition";
-import FooterSection from "./components/FooterSection";
-import Pattern from "./components/Pattern";
-import ProjectSection from "./components/ProjectSection";
+import Image from "next/image"
+import OverlappingCard from "./components/OverlappingCard"
+import GithubContribution from "./components/GithubContribuition"
+import FooterSection from "./components/FooterSection"
+import ProjectSection from "./components/ProjectSection"
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen max-w-7xl bg-black text-white font-sans overflow-hidden">
-  {/* Left stripe pattern - fixed */}
-  <div className="fixed left-0 top-0 w-80 h-full opacity-[0.09] text-white border-r border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
+    <div className="relative min-h-screen w-full bg-black text-white font-sans overflow-hidden">
+      <div className="fixed inset-0 z-0">
+        {/* Base black background */}
+        <div className="absolute inset-0 bg-black" />
 
-  {/* Right stripe pattern - fixed */}
-  <div className="fixed right-0 top-0 w-80 h-full opacity-[0.09] text-white border-l border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
+        {/* Stripe pattern background */}
+        <div className="absolute inset-0 opacity-[0.03] bg-[repeating-linear-gradient(45deg,transparent,transparent_2px,rgba(255,255,255,0.3)_2px,rgba(255,255,255,0.3)_3px,transparent_3px,transparent_6px)]" />
+        <div className="absolute inset-0 opacity-[0.08] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,rgba(255,255,255,0.3)_2px,rgba(255,255,255,0.3)_3px,transparent_3px,transparent_6px)]" />
 
-    {/* Left stripe pattern - fixed */}
-  <div className="fixed left-0 top-0 w-80 h-full opacity-[0.09] text-white border-r border-[#ffffff] bg-[repeating-linear-gradient(45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
+        {/* Noise texture overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage:
+              "url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><filter id=%22noise%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 result=%22noise%22/></filter><rect width=%22100%22 height=%22100%22 filter=%22url(%23noise)%22 opacity=%220.1%22/></svg>')",
+            backgroundSize: "100px 100px",
+          }}
+        />
+      </div>
 
-  {/* Right stripe pattern - fixed */}
-  <div className="fixed right-0 top-0 w-80 h-full opacity-[0.09] text-white border-l border-[#ffffff] bg-[repeating-linear-gradient(45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
-
-    {/* rest of your content */}
-
-      <main className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <main className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <Image
           src={"/quote.svg"}
           alt="quote"
@@ -35,30 +39,24 @@ export default function Home() {
           <OverlappingCard />
         </div>
 
-        <h1 className="text-4xl sm:text-5xl font-bold text-center mb-8 sm:mb-12 tracking-tight">
-          Shruti
-        </h1>
+        <h1 className="text-4xl sm:text-5xl font-bold text-center mb-8 sm:mb-12 tracking-tight">Shruti</h1>
 
         <div className="w-full mb-12 sm:mb-16">
           <div className="lg:-mx-24 xl:-mx-32">
-            <GithubContribution username="shruti" />
+            <GithubContribution username="shrutidotdev" />
           </div>
         </div>
 
         <div className="space-y-6 sm:space-y-8 mb-12 sm:mb-16">
           <p className="text-lg sm:text-xl leading-relaxed text-white">
-            <span className="font-semibold">
-              I build things that didn&apos;t exist yesterday.
-            </span>{" "}
-            AI-powered products, full-stack apps, tools that make people&apos;s
-            lives easier—I take them from idea to deployment without asking for
-            a roadmap.
+            <span className="font-semibold font-">I build things that didn&apos;t exist yesterday.</span> AI-powered products,
+            full-stack apps, tools that make people&apos;s lives easier—I take them from idea to deployment without
+            asking for a roadmap.
           </p>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-400">
-            I care about one thing: does it work, and do people love it?
-            Everything else is noise. From frontend to backend to deployment, I
-            work across the entire stack and deliver results that matter.
+            I care about one thing: does it work, and do people love it? Everything else is noise. From frontend to
+            backend to deployment, I work across the entire stack and deliver results that matter.
           </p>
         </div>
 
@@ -77,14 +75,16 @@ export default function Home() {
           </a>
         </div>
 
-<div className="w-full max-w-8xl">
-        <ProjectSection />
-      </div>
+        <div className="w-full flex justify-center">
+          <div className="w-full max-w-6xl px-4">
+            <ProjectSection />
+          </div>
+        </div>
 
-        <div className="h-px bg-zinc-800 mb-12 sm:mb-16"></div>
+        <div className="h-px bg-zinc-800 mb-12 sm:mb-16 mt-12 sm:mt-16"></div>
 
         <FooterSection />
       </main>
     </div>
-  );
+  )
 }

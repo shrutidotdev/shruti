@@ -2,8 +2,6 @@
 
 import { Card, CardContent, CardHeader, CardDescription, CardTitle, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import { motion } from "framer-motion"
 
 const CardGroupDemo = () => {
   const cards = [
@@ -28,42 +26,19 @@ const CardGroupDemo = () => {
   ]
 
   return (
-    <div className="flex *:rounded-none *:shadow-none max-xl:flex max-xl:*:not-last:border-b-0 max-xl:*:first:rounded-t-xl max-xl:*:last:rounded-b-xl max-sm:flex-col gap-6">
+    <div className="flex flex-col gap-6 md:flex-row *:rounded-none *:shadow-none md:*:not-last:border-r-0 md:*:first:rounded-l-xl md:*:last:rounded-r-xl md:flex-1 border-none">
       {cards.map((card, index) => (
-        <Card
-          key={index}
-          className="pt-0 shadow-2xl shadow-amber-50 cursor-pointer bg-black border-white/10 hover:shadow-white/70 transition-shadow duration-300 text-white"
-        >
-          <CardContent className="p-0 overflow-hidden rounded-t-lg">
-            <motion.div
-              whileHover={{
-                scale: 1.1,
-                rotateY: 5,
-                rotateX: 5,
-                transition: { duration: 0.3 },
-              }}
-              style={{
-                transformStyle: "preserve-3d",
-                perspective: 1000,
-              }}
-            >
-              <Image
-                src={card.image || "/placeholder.svg"}
-                alt="Banner"
-                className="aspect-video w-full object-cover transition-transform duration-300"
-                sizes="max(width: 368px) 100vw, 368px"
-                width={1000}
-                height={1000}
-              />
-            </motion.div>
+        <Card key={index} className="overflow-hidden py-5 cursor-pointer flex flex-col justify-between shadow-lg hover:shadow-2xl bg-black transition-shadow duration-300 h-[30rem] w-96">
+          <CardContent className="p-0">
+            <img src={card.image} alt={card.title} className="aspect-video w-full object-cover " />
           </CardContent>
-          <CardHeader>
-            <CardTitle className="text-2xl">{card.title}</CardTitle>
-            <CardDescription className="text-xl text-ellipsis overflow-hidden h-40">{card.description}</CardDescription>
+          <CardHeader className="mb-7">
+            <CardTitle>{card.title}</CardTitle>
+            <CardDescription>{card.description}</CardDescription>
           </CardHeader>
           <CardFooter className="gap-3 max-sm:flex-col max-sm:items-stretch">
-            <Button className="text-md cursor-pointer">Explore More</Button>
-            <Button className="text-md cursor-pointer">Download Now</Button>
+            <Button>Explore More</Button>
+            <Button > Now</Button>
           </CardFooter>
         </Card>
       ))}

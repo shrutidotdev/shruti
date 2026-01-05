@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Instrument_Serif } from "next/font/google";
+import { Instrument_Serif, Lora } from "next/font/google";
 import "./globals.css";
 
-const instrument_Serif = Instrument_Serif({
+const instrumentSerif = Instrument_Serif({
   weight: "400",
   subsets: ["latin"],
+  variable: "--font-instrument", // Changed from --font-instrument-serif
+});
+
+const lora = Lora({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-lora",
 });
 
 export const metadata: Metadata = {
@@ -19,10 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${instrument_Serif.className} antialiased`}>
-        
+      <body
+        className={`${instrumentSerif.variable} ${lora.variable} antialiased`}
+      >
         {children}
-        </body>
+      </body>
     </html>
   );
 }
