@@ -7,7 +7,7 @@ import ProjectSection from "./components/ProjectSection";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-black text-white font-sans overflow-hidden">
+    <div className="relative min-h-screen bg-black max-w-300 w-full text-white font-sans overflow-hidden">
   {/* Left stripe pattern - fixed */}
   <div className="fixed left-0 top-0 w-80 h-full opacity-[0.09] text-white border-r border-[#ffffff] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,currentcolor_2px,currentcolor_3px,transparent_3px,transparent_6px)]"></div>
 
