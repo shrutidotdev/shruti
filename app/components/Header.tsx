@@ -13,7 +13,7 @@ import {
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 h-16 w-full border-b bg-black text-white backdrop-blur-2xl transition-shadow">
+    <header className="sticky top-0 z-50 h-16 w-full bg-black text-white backdrop-blur-2xl transition-shadow">
       <div className="mx-auto flex h-full w-full items-center justify-center px-0">
         {/* Logo and Navigation */}
         <div className="flex flex-col md:flex-row items-center justify-between w-full md:w-auto mx-4 md:mx-0">
@@ -50,16 +50,16 @@ export function Header() {
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-black text-md tracking-wide">Features</NavigationMenuTrigger>
-                <NavigationMenuContent>
+                <NavigationMenuTrigger className="bg-black text-base tracking-wide">Features</NavigationMenuTrigger>
+                <NavigationMenuContent className="bg-black border-none text-white">
                   <ul className="grid w-100 gap-3 p-4 md:w-125 md:grid-cols-2 lg:w-150">
                     <li>
                       <NavigationMenuLink asChild>
                         <a
-                          className="block select-none space-y-1  rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-white focus-visible:bg-accent focus-visible:text-accent-white"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-white focus-visible:bg-accent focus-visible:text-accent-white"
                           href="/features/ai-powered"
                         >
-                          <div className="text-sm font-semibold">AI-Powered</div>
+                          <div className="text-base font-semibold">AI-Powered</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-white">
                             Advanced AI capabilities to boost your productivity
                           </p>
@@ -72,7 +72,7 @@ export function Header() {
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-white focus-visible:bg-accent focus-visible:text-accent-white"
                           href="/features/real-time"
                         >
-                          <div className="text-sm font-semibold">Real-time</div>
+                          <div className="text-base font-semibold">Real-time</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-white">
                             Instant updates and synchronization
                           </p>
@@ -84,8 +84,8 @@ export function Header() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent">Solutions</NavigationMenuTrigger>
-                <NavigationMenuContent>
+                <NavigationMenuTrigger className="bg-transparent text-base">Solutions</NavigationMenuTrigger>
+                <NavigationMenuContent className="bg-black border-none text-white">
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                     <li>
                       <NavigationMenuLink asChild>
@@ -93,7 +93,7 @@ export function Header() {
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-white focus-visible:bg-accent focus-visible:text-accent-white"
                           href="/solutions/enterprise"
                         >
-                          <div className="text-sm font-semibold">Enterprise</div>
+                          <div className="text-base font-semibold">Enterprise</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-white">
                             Scalable solutions for large organizations
                           </p>
@@ -103,10 +103,10 @@ export function Header() {
                     <li>
                       <NavigationMenuLink asChild>
                         <a
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-white focus-visible:bg-accent focus-visible:text-accent-white"
-                          href="/solutions/startup"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors border-none hover:bg-accent hover:text-accent-white focus-visible:bg-accent focus-visible:text-accent-white bg-black"
+                          href="/solutions/startup "
                         >
-                          <div className="text-sm font-semibold">Startup</div>
+                          <div className=" font-semibold">Startup</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-white">
                             Flexible plans for growing teams
                           </p>
@@ -121,7 +121,7 @@ export function Header() {
                 <NavigationMenuLink asChild>
                   <a
                     href="/pricing"
-                    className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-white focus-visible:bg-accent focus-visible:text-accent-white focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent"
+                    className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-base font-medium transition-colors hover:bg-accent hover:text-accent-white focus-visible:bg-accent focus-visible:text-accent-white focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent"
                   >
                     Pricing
                   </a>
@@ -132,7 +132,7 @@ export function Header() {
                 <NavigationMenuLink asChild>
                   <a
                     href="/docs"
-                    className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-white focus-visible:bg-accent focus-visible:text-accent-white focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent"
+                    className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-base font-medium transition-colors hover:bg-accent hover:text-accent-white focus-visible:bg-accent focus-visible:text-accent-white focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent"
                   >
                     Docs
                   </a>

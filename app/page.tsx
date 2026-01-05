@@ -9,8 +9,8 @@ import { Header } from "./components/Header";
 export default function Home() {
   return (
     <div className=" min-h-screen w-full bg-black text-white font-sans overflow-hidden">
-      <div className="relative mx-auto max-w-4xl">
-       <div className="absolute inset-0 opacity-[0.18] bg-[repeating-linear-gradient(45deg,transparent,transparent_2px,rgba(255,255,255,0.4)_2px,rgba(255,255,255,0.4)_3px,transparent_3px,transparent_6px)]" />
+      <div className="relative mx-auto max-w-4xl rounded-lg px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+       <div className="absolute inset-0 opacity-[0.09] bg-[repeating-linear-gradient(45deg,transparent,transparent_2px,rgba(255,255,255,0.4)_2px,rgba(255,255,255,0.4)_3px,transparent_3px,transparent_6px)]" />
       <div className="absolute inset-0 opacity-[0.14] bg-[repeating-linear-gradient(-45deg,transparent,transparent_2px,rgba(255,255,255,0.35)_2px,rgba(255,255,255,0.35)_3px,transparent_3px,transparent_6px)]" />
 
       {/* Noise texture overlay - ENHANCED for texture */}

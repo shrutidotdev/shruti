@@ -91,11 +91,7 @@
   );
 }
 
-/* Custom utility class */
-@utility bg-stripes {
-  background-image: var(--background-stripes);
-  background-size: 14px 14px;
-}
+
 
 :root {
   --radius: 0.625rem;
